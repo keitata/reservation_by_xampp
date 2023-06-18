@@ -15,8 +15,7 @@ class ReservationController extends Controller
     public function index()
     {
         //
-        $reservations = Reservation::all();
-        return view('reservations.index', ['reservations' => $reservations]);
+
 
     }
 
@@ -27,7 +26,8 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -38,7 +38,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //予約情報を保存
     }
 
     /**

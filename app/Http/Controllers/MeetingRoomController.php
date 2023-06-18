@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MeetingRoom;
 use Illuminate\Http\Request;
+use App\Models\Reservation;
 
 class MeetingRoomController extends Controller
 {
@@ -14,7 +15,7 @@ class MeetingRoomController extends Controller
      */
     public function index()
     {
-        //
+        // 会議室一覧
         $meetingRooms = MeetingRoom::all();
         return view('meeting_rooms.index', ['meetingRooms' => $meetingRooms]);
     }
@@ -46,9 +47,21 @@ class MeetingRoomController extends Controller
      * @param  \App\Models\MeetingRoom  $meetingRoom
      * @return \Illuminate\Http\Response
      */
-    public function show(MeetingRoom $meetingRoom)
+    public function show($id)
     {
-        //
+        //会議室詳細
+        $meetingRoom = MeetingRoom::find($id);
+        $currentReservation = Reservation::where('room_id', $id)
+        ->where('start', '<=', now())
+        ->where('end', '>=', now())
+        ->get();
+
+        return view('meeting_rooms.show', [
+        'meetingRoom' => $meetingRoom,
+        'currentReservation' => $currentReservation
+    ]);
+        return view('meeting_rooms.show', ['meetingRoom' => $meetingRoom]);
+
     }
 
     /**
