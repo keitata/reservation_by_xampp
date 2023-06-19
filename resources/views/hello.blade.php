@@ -1,1 +1,5 @@
-hllllello  create database blog;a
+@extends('layouts.app')
+
+@section('content')
+    <example-component></example-component>
+@endsection

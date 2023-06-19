@@ -8,11 +8,14 @@
 
     <h2>現在の予約</h2>
 
-    @if ($currentReservation)
-        <p>予約日時: {{ $currentReservation->start }} - {{ $currentReservation->end }}</p>
+    @if ($currentReservation->count() > 0)
+    @foreach ($currentReservation as $reservation)
+        <p>予約日時: {{ $reservation->start }} - {{ $reservation->end }}</p>
+    @endforeach
     @else
         <p>現在予約はありません</p>
     @endif
+
 
 
     <h2>予約作成</h2>

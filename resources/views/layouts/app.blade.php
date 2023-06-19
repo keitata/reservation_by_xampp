@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>会議室予約システム</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Laravel App</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
-    <div class="container">
+    <header>
+        <!-- ヘッダーのコンテンツ -->
+    </header>
+
+    <main>
         @yield('content')
-    </div>
+    </main>
+
+    <footer>
+        <!-- フッターのコンテンツ -->
+    </footer>
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
